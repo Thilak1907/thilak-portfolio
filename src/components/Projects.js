@@ -1,43 +1,39 @@
 import React from 'react';
+import './Projects.css';
 
 const Projects = () => {
   const projects = [
     {
-      image: "/project1.jpg",
-      category: "Web Design",
-      title: "Project Title 1",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      title: "Malware Detection System",
+      description: "A hybrid malware detection system using GANs and Transfer Learning. Converts malware binaries to grayscale images for visual pattern recognition, utilizing VGG19 for improved accuracy.",
+      tech: [ "Keras", "OpenCV", "VGG19", "GANs"],
+      type: "AI/ML"
     },
     {
-      image: "/project2.jpg",
-      category: "Mobile App",
-      title: "Project Title 2",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-    {
-      image: "/project3.jpg",
-      category: "Development",
-      title: "Project Title 3",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      title: "Handwritten Character Recognition",
+      description: "An MLP-based system trained on EMNIST dataset for recognizing handwritten characters. Features high accuracy classification with comprehensive performance metrics.",
+      tech: [ "Keras", "OpenCV", "NumPy", "Scikit-learn"],
+      type: "Deep Learning"
     }
   ];
 
   return (
-    <section className="projects">
+    <section id="projects" className="projects">
       <div className="container">
-        <div className="projects-header">
-          <h2>My Projects</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+        <div className="section-badge">Projects</div>
+        <h2 className="section-title">Featured Work</h2>
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <img src={project.image} alt={project.title} />
+            <div className="project-card" key={index}>
               <div className="project-content">
-                <span className="project-category">{project.category}</span>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <button className="view-project">View Project</button>
+                <div className="project-type">{project.type}</div>
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-description">{project.description}</p>
+                <div className="tech-stack">
+                  {project.tech.map((tech, techIndex) => (
+                    <span key={techIndex} className="tech-tag">{tech}</span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
